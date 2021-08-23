@@ -1,7 +1,7 @@
 project "GLFW"
 	kind "StaticLib"
 	language "C"
-	staticruntime "On"
+	staticruntime "on"
 	--staticruntime "Off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
@@ -42,11 +42,10 @@ project "GLFW"
 			"_CRT_SECURE_NO_WARNINGS"
 		}
 
-	--filter "configurations:Debug"
-		--runtime "Debug"
-		--symbols "On"
-
+	filter "configurations:Debug"
+		runtime "Debug"
+		symbols "on"
+		
 	filter "configurations:Release"
-		buildoptions "/MT"
-		--runtime "Release"
-		--optimize "On"
+		runtime "Release"
+		optimize "on"
